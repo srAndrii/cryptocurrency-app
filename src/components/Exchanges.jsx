@@ -12,6 +12,7 @@ const { Panel } = Collapse;
 const Exchanges = () => {
   const { data, isFetching } = useGetExchangesListQuery();
   const exchangesList = data
+  console.log(data)
   if (isFetching) return <Loader />;
 
   return (
@@ -24,7 +25,7 @@ const Exchanges = () => {
       </Row>
       <Row>
         {exchangesList.map((exchange) => (
-          <Col span={24}>
+          <Col span={24} key={exchange.id}>
             <Collapse>
               <Panel
                 key={exchange.id}
@@ -43,6 +44,8 @@ const Exchanges = () => {
                   )}
               >
                 {HTMLReactParser(exchange.description || '')}
+                <Row> <a href={exchange.url} target='_blank' rel='noreferrer'>{ exchange.url}</a></Row>
+               
               </Panel>
             </Collapse>
           </Col>
