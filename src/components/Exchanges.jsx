@@ -1,18 +1,22 @@
+import React, { useEffect } from 'react';
 import millify from 'millify';
 import { Collapse, Row, Col, Typography, Avatar } from 'antd';
 import HTMLReactParser from 'html-react-parser';
 
 import { useGetExchangesListQuery } from '../services/cryptoExchangesApi';
 import Loader from './Loader';
+import Error from './Error';
 
 const { Text } = Typography;
 const { Panel } = Collapse;
 
 const Exchanges = () => {
-  const { data:exchangesList, isFetching } = useGetExchangesListQuery();
+  const { data:exchangesList, isFetching, isError } = useGetExchangesListQuery();
+  // const exchangesList = data
   // console.log(exchangesList)
   
   if (isFetching) return <Loader />;
+  if (isError)  return <Error/>
 
 
   return (
