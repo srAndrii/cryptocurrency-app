@@ -261,6 +261,14 @@ a:hover{
 .coin-link:hover, .coin-stats:hover{
     background-color: var(--bgSecondary);
 }
+.error{
+    height: 100vh;
+}
+.error_img{
+    width: 650px;
+    height: 650px;
+    margin-bottom: 10px;
+}
 
 @media screen and (max-width:1000px){
     .stats-container{
@@ -271,6 +279,10 @@ a:hover{
     }
     .stats-container h2{
         margin-top: 0px;
+    }
+    .error_img{
+        width: 500px;
+        height: auto;
     }
 }
 
@@ -285,6 +297,10 @@ a:hover{
 @media screen and (max-width: 500px){
     .heading{
         margin-top: 20px;
+    }
+    .error_img{
+        width: 300px;
+        height: auto;
     }
 }
 

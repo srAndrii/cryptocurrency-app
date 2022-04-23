@@ -1,4 +1,3 @@
-import React from 'react';
 import millify from 'millify';
 import { Collapse, Row, Col, Typography, Avatar } from 'antd';
 import HTMLReactParser from 'html-react-parser';
@@ -10,10 +9,11 @@ const { Text } = Typography;
 const { Panel } = Collapse;
 
 const Exchanges = () => {
-  const { data, isFetching } = useGetExchangesListQuery();
-  const exchangesList = data
-  console.log(data)
+  const { data:exchangesList, isFetching } = useGetExchangesListQuery();
+  // console.log(exchangesList)
+  
   if (isFetching) return <Loader />;
+
 
   return (
     <>
